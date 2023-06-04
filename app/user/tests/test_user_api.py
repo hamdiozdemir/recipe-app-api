@@ -84,7 +84,7 @@ class PublicUserApiTests(TestCase):
         """Test returns error if credenatials invalid"""
         create_user(email='test@example.com', password='goodpass')
 
-        payload = {'email':'test@example.com', 'password': 'badpass'}
+        payload = {'email': 'test@example.com', 'password': 'badpass'}
         res = self.client.post(TOKEN_URL, payload)
 
         self.assertNotIn('token', res.data)
@@ -110,9 +110,9 @@ class PrivateUserAPiTests(TestCase):
 
     def setUp(self):
         self.user = create_user(
-            email = 'test@example.com',
-            password = 'testpass123',
-            name = 'Test Name'
+            email='test@example.com',
+            password='testpass123',
+            name='Test Name'
         )
         self.client = APIClient()
         self.client.force_authenticate(user=self.user)
