@@ -27,7 +27,7 @@ class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         """Create, save and return a new user"""
         if not email:
-            raise ValueError('User must have an email adress.')
+            raise ValueError('User must have an email address.')
         user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
@@ -76,7 +76,7 @@ class Recipe(models.Model):
 
 
 class Tag(models.Model):
-    """Tag for filterinfg recipes."""
+    """Tag for filtering recipes."""
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
