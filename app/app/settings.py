@@ -26,11 +26,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'changeme')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
-ALLOWED_HOSTS = [os.getenv('AWS_HOST', ''),]
+ALLOWED_HOSTS = ['http://ec2-54-80-72-97.compute-1.amazonaws.com/',]
 ALLOWED_HOSTS.extend(
     filter(
         None,
-        os.getenv('DJANGO_ALLOWED_HOSTS', '').split(','),
+        os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(','),
     )
 )
 
